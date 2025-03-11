@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool noChao = false;
 
     public bool andando = false;
-
+    public bool pulando = false;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer  _spriteRenderer;
     private Animator _animator;
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     { if (collision.gameObject.tag == "chao")
         {
             noChao = true;
+            pulando = false;
         }
     }
 
@@ -73,13 +74,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && noChao == true)
         {
             _rigidbody2D.AddForce(new Vector2(0, 1) * focaPulo,ForceMode2D.Impulse);
-
+            pulando = true;
             Debug.Log("Jump");
         }
 
         _animator.SetBool("Andando",andando);
         _animator.SetBool("NoChao",noChao);
-     
+        _animator.SetBool("pulando",pulando);
     }
 }
 
