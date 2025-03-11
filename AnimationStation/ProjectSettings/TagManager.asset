@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - chao
+  - death
   layers:
   - Default
   - TransparentFX
